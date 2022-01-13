@@ -9,9 +9,9 @@ Add the following line to the `require` section of `composer.json`:
 
 ```json
 {
-    "require": {
-        "larammerce/html-dom": "1.0.*"
-    }
+  "require": {
+    "larammerce/html-dom": "1.1.*"
+  }
 }
 ```
 
@@ -25,6 +25,7 @@ Add the following line to the `require` section of `composer.json`:
 	'Larammerce\HtmlDom\HtmlDomServiceProvider',
     ...
 ```
+
 2. Add alias to `config/app.php`.
 
 ```php
