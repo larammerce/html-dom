@@ -1,4 +1,4 @@
-<?php namespace Yangqi\Htmldom;
+<?php namespace Larammerce\HtmlDom;
 /**
  * Website: http://sourceforge.net/projects/simplehtmldom/
  * Additional projects that may be used: http://sourceforge.net/projects/debugobject/
@@ -68,7 +68,7 @@ if (!defined('MAX_FILE_SIZE')) {
     define('MAX_FILE_SIZE', 600000);
 }
 
-class Htmldom {
+class HtmlDom {
 
 	public $root = null;
 	public $nodes = array();
@@ -319,7 +319,7 @@ class Htmldom {
 		$this->lowercase = $lowercase;
 		$this->default_br_text = $defaultBRText;
 		$this->default_span_text = $defaultSpanText;
-		$this->root = new Htmldomnode($this);
+		$this->root = new HtmlDomNode($this);
 		$this->root->tag = 'root';
 		$this->root->_[HDOM_INFO_BEGIN] = -1;
 		$this->root->nodetype = HDOM_TYPE_ROOT;
@@ -336,7 +336,7 @@ class Htmldom {
 		}
 
 		// text
-		$node = new Htmldomnode($this);
+		$node = new HtmlDomNode($this);
 		++$this->cursor;
 		$node->_[HDOM_INFO_TEXT] = $s;
 		$this->link_nodes($node, false);
@@ -496,7 +496,7 @@ class Htmldom {
 			return true;
 		}
 
-		$node = new Htmldomnode($this);
+		$node = new HtmlDomNode($this);
 		$node->_[HDOM_INFO_BEGIN] = $this->cursor;
 		++$this->cursor;
 		$tag = $this->copy_until($this->token_slash);
@@ -697,7 +697,7 @@ class Htmldom {
 	// as a text node
 	protected function as_text_node($tag)
 	{
-		$node = new Htmldomnode($this);
+		$node = new HtmlDomNode($this);
 		++$this->cursor;
 		$node->_[HDOM_INFO_TEXT] = '</' . $tag . '>';
 		$this->link_nodes($node, false);
